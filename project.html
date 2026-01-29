@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+        .email,a{
+            display:block;
+        }
+        a:link{
+            color:pink
+        }
+        a:visited{
+            color:purple
+        }
+        a:hover{
+            color:blue
+        }
+        a:active{
+            color:red
+        }
+        main,div{
+            display:flex;
+        }
+        main{
+            height:820px;
+            margin-top:20px;
+        }
+
+        p{
+            transition: 0.5s;
+            margin:10px 0;
+        }
+        ul{
+            list-style-type:none
+        }
+        li{
+            transition: 0.5s;
+        }
+        p:hover,li:hover{
+            background-color: #139acf;
+            font-size:1.2em;
+        }
+
+        section{
+            overflow:hidden;
+            padding:20px;
+            border:2px solid rgb(40, 166, 244);
+            border-radius:10px;
+            text-align: center;
+
+        }
+        .card{
+            transition: 1s;
+            position:relative;
+            top:auto;
+            margin-left:10px;
+            bottom:auto;
+            width:20%;
+            min-height:20%;
+            height:auto;
+        }
+        img{
+            max-width: 200px;
+            max-height:200px;
+            border-radius:50%;
+            margin:10px 0;
+        }
+        .content{
+            padding-left:20px;
+            padding-right:20px;
+            flex-grow:1;
+            flex-direction:column;
+            align-content: center;
+        }
+        .details{
+            transition: 1s;
+            width:auto;
+            min-height:20%;
+            height:33.33%;
+        }
+        .details:hover{
+            overflow:auto;
+            background-color: #ecf7f7;
+            font-size:1.5em;
+            width:auto;
+            height:100%;
+        
+        }
+        .card:hover{
+            overflow:auto;
+            background-color: #ecf7f7;
+            transition: 1.5s;
+            font-size:1.2em;
+            width:100%;
+            height:auto;
+        }
+        footer{
+            text-align: center;
+            padding:10px 0;
+            background-color: #139acf;
+            color:white;
+            margin-top:20px;
+        }
+        
+         @media (max-width: 768px) {
+            main {
+                flex-direction: column; 
+                align-items:center;
+            }
+            .card {
+                margin-left:0;
+                margin-top:10px;
+                width: 90%;
+            }
+            .card:hover{
+                overflow:auto;
+                background-color: #ecf7f7;
+                font-size:1.5em;
+                width:90%;
+                height:100%;
+            }
+            .content{
+                width:90%;
+                padding:0; 
+            }
+            .details {
+                min-height: 180px;
+            }
+        }
+    </style>
+    <title>个人名片（首个项目）</title>
+</head>
+<body>
+    <main>
+
+        <section class="card">
+        <h1>个人名片</h1>
+        <img src="https://github.com/Liuyu999777/imagebed/blob/8b5dcf8790cf75668dc26cc8091cb5ea49062e00/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_2025-10-09_151554_475.jpg?raw=true" alt="头像">
+        <h2>基本信息</h2>
+        <p>姓名：金于珑</p>
+        <p>年龄：18岁</p>
+        <p>职业：PKU大一新生</p>
+        <p>学校：北京大学</p>
+        <p>院系：工学院</p>
+    
+        </section>
+
+
+        <div class='content'>
+            <section class ='details'>
+                <h2>技能</h2>
+                <ul>
+                    <li>HTML基础</li>
+                    <li>CSS基础</li>
+                    <li>JavaScript入门</li>
+                    <li>Python编程</li>
+                    <li>辩论</li>
+                    <li>电竞达人</li>
+                </ul>
+
+            </section>
+
+            <section class="details">
+                <h2>成就</h2>
+                <p>骄傲的北大学子</p>
+                <p>峡谷之巅超凡大师</p>
+                <p>2025京津冀英雄联盟高校电竞邀请赛冠军</p>
+                <p>2025福建省庄采芳·庄重文奖学金获得者</p>
+
+
+            </section>
+            <section class="details">
+                <h2>联系方式</h2>
+                <p>
+                    电子邮件：
+                    <span class="email">liuyu999777@gmail.com</span>
+                    <span class="email">1054795272@qq.com</span>
+                    <span class="email">2500013521@stu.pku.edu.cn</span>
+                </p>
+                <p>电话：13376977722</p>
+                <p>QQ:1054795272</p>
+                <p>微信：_Liu_Yu__</p>
+                <a href="https://github.com/Liuyu999777">GitHub个人主页：</a>
+                <a href="https://space.bilibili.com/1552856479?spm_id_from=333.788.0.0">B站账号主页</a>
+
+
+
+
+            </section>
+        </div>
+
+
+    </main>
+    <footer>© 2026 流雨的个人名片</footer>
+</body>
+</html>
