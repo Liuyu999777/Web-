@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow:hidden;
+    }
+    
+
+   
+
+    </style>
+     <script>
+        const config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y:0 },
+                    debug: false
+                }
+            },
+            scale: {
+                mode: Phaser.Scale.FIT,      // 自动缩放以适应屏幕
+                autoCenter: Phaser.Scale.CENTER_BOTH // 水平和垂直全部居中
+            },
+            scene: { preload, create, update }
+        };
+
+        const game = new Phaser.Game(config);
+
+        function preload() {
+            this.load.image('bg','assets/bg1.png')
+            this.load.image('ball','assets/ball.png')
+            this.load.image('board','assets/board.png')
+            this.load.image('particle','assets/star.png')
+        }
+        var ball
+        var board_left
+        var board_right
+        var keys
+        var score = 0
+        var scoreboard
+        var restartText
+        var angel = Phaser.Math.Between(-60,60)
+        var particles
+        var isPaused = false
+        var stopText
+
+       function create() {
+            const center_w = this.cameras.main.width/2;
+            const center_h = this.cameras.main.height/2;
+
+            const stop = () => {
+                if (isPaused){
+                    this.physics.resume();
+                    isPaused = false
+                    stopText.destroy()
+                }
+                else {
+                    this.physics.pause();
+                    isPaused = true;
+                    stopText = this.add.text(center_w,center_h,'SPACE to START\nor Pause',{ fontSize: '64px', fill: '#fff' ,align:'center'}).setOrigin(0.5)
+
+                }
+                }
+            
+            this.input.keyboard.on('keydown-SPACE', stop)
+
+            this.add.image(center_w,center_h,'bg');
+
+            ball = this.physics.add.sprite(center_w,center_h,'ball');
+            ball.setBounce(1,1);
+            this.physics.velocityFromAngle(angel,400,ball.body.velocity)
+            ball.body.setMaxVelocity(800,800)
+
+            board_left = this.physics.add.sprite(center_w-387.5,center_h,'board');
+            board_right = this.physics.add.sprite(center_w+387.5,center_h,'board');
+            board_left.setImmovable(true);
+            board_right.setImmovable(true);
+
+            this.physics.add.collider(ball, board_left,function(_ball,_board){
+                _ball.body.velocity.x*=1.1;
+                _ball.body.velocity.y += _board.body.velocity.y / 10
+                _ball.setTint(0xff0000);
+                score += 1
+                scoreboard.setText(`Score:${score}`)
+                particles.explode(30,_ball.x,_ball.y)
+                setTimeout(() => _ball.clearTint(), 100);
+            });
+            this.physics.add.collider(ball, board_right,function(_ball,_board){
+                _ball.body.velocity.x*=1.1;
+                _ball.body.velocity.y += _board.body.velocity.y / 10
+                _ball.setTint(0xff0000);
+                score += 1
+                scoreboard.setText(`Score:${score}`)
+                particles.explode(30,_ball.x,_ball.y)
+                setTimeout(() => _ball.clearTint(), 100);
+            })
+
+            board_left.setCollideWorldBounds(true);
+            board_right.setCollideWorldBounds(true);
+            ball.setCollideWorldBounds(true);
+            ball.body.onWorldBounds = true;
+
+            keys = this.input.keyboard.addKeys(
+                {left_up:'W',left_down:'S',right_up:'UP',right_down:'DOWN'})
+
+            this.physics.world.setBounds(center_w-400, center_h-300, center_w+400, center_h+300)
+
+            scoreboard = this.add.text(0,0,`Score:${score}`,{
+                fontSize:'32px',
+                fill: '#ffffff',
+            })
+            this.physics.world.on('worldbounds', (body, up, down, left, right) => {
+                if (body.gameObject === ball) { 
+                    if (left || right) {
+                        console.log("球漏掉了！游戏结束");
+                        gameOver.call(this)
+                        }
+                    }
+            });
+            particles = this.add.particles(0, 0, 'particle', {
+                speed: { min: 50, max: 150 },
+                scale: { start: 0.6, end: 0 },
+                lifespan: 600,
+                blendMode: 'ADD',
+                emitting:false
+        })
+        stop()
+       }
+
+        function update() { 
+            if (keys.left_up.isDown){
+            board_left.setVelocityY(-500)
+           }
+            else if (keys.left_down.isDown){
+            board_left.setVelocityY(500)
+           }
+           else{
+            board_left.setVelocityY(0)
+           }
+            if (keys.right_up.isDown){
+            board_right.setVelocityY(-500)
+           }
+            else if (keys.right_down.isDown){
+            board_right.setVelocityY(500)
+            }
+            else {
+            board_right.setVelocityY(0)}
+           }
+        
+
+        function gameOver(){
+            this.physics.pause();
+            restartText = this.add.text(400, 300, 'GAME OVER\nClick to Restart', {
+        fontSize: '48px',
+        fill: '#fff',
+        align: 'center',
+    }).setOrigin(0.5);
+        restartText.setInteractive({useHandCursor:true})
+        restartText.on('pointerover', () => restartText.setStyle({ fill: '#ff0' }));
+        restartText.on('pointerout', () => restartText.setStyle({ fill: '#fff' }));
+        const restartGame = () => {
+            score = 0;
+            this.scene.restart();
+        }
+        this.input.keyboard.once('keydown-SPACE', restartGame)
+        restartText.on('pointerdown',restartGame);
+        }
+           
+    </script>
+</head>
+<body>
+   
+</body>
+</html>
