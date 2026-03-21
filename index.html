@@ -8,6 +8,8 @@
 	<meta name="author" content='Liu_Yu'>
     <link rel="icon" type="image/x-icon" href="profile.jpg">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
+    <script src="clock.js"></script>
     <style>
     </style>
     <title>流雨的个人主页</title>
@@ -15,55 +17,59 @@
 <body>
     <main>
 
-        <section class="card">
-        <h1>个人主页</h1>
+        <section class = 'card' id="clock">
+            <span id="hour">00</span> <span>:</span> <span id="minute">00</span> <span>:</span> <span id="second">00</span>
+        </section>
+
+        <section class="card" id="profile">
         <img src="profile.jpg" alt="头像">
-        <h2>基本信息</h2>
-        <p>姓名：金于珑</p>
-        <p>年龄：18岁</p>
-        <p>职业：PKU大一新生</p>
-        <p>学校：北京大学</p>
-        <p>院系：工学院</p>
+        <h1>Hello!</h1>
+        <p>I'm <span id="name">Liu_Yu</span></p>
+        <p>Welcom to my page</p>
+        <p>Have a good day!</p>
     
         </section>
 
 
-        <div class='content'>
-            <section class ='details'>
-                <h2>实践项目</h2>
-                <p>Phaser3实现Pong游戏</p>
-                <a href='pong/index.html' target='_blank'>传送门</a>
+        <section class ='card' id="project">
+            <h2>实践项目</h2>
+            <p>Phaser3实现Pong游戏</p>
+            <a href='pong/index.html' target='_blank'>传送门</a>
 
-            </section>
+        </section>
 
-            <section class="details">
-                <h2>待定</h2>
-               
-
-
-            </section>
-            <section class="details">
-                <h2>联系方式</h2>
-                <p>
-                    电子邮件：
-                    <span class="email">liuyu999777@gmail.com</span>
-                    <span class="email">1054795272@qq.com</span>
-                    <span class="email">2500013521@stu.pku.edu.cn</span>
-                </p>
-                <p>电话：13376977722</p>
-                <p>QQ:1054795272</p>
-                <p>微信：_Liu_Yu__</p>
-                <a href="https://github.com/Liuyu999777">GitHub个人主页：</a>
-                <a href="https://space.bilibili.com/1552856479?spm_id_from=333.788.0.0">B站账号主页</a>
+        <section class="card" id = 'waiting'>
+            <h2>待定</h2>
+            
 
 
+        </section>
 
-
-            </section>
+        <section class="card" id="contact">
+            <h2>联系方式</h2>
+            <p>
+                电子邮件：
+                <span class="email">liuyu999777@gmail.com</span>
+                <span class="email">1054795272@qq.com</span>
+                <span class="email">2500013521@stu.pku.edu.cn</span>
+            </p>
+            <p>电话：13376977722</p>
+            <p>QQ:1054795272</p>
+            <p>微信：_Liu_Yu__</p>
+            <a href="https://github.com/Liuyu999777">GitHub个人主页：</a>
+            <a href="https://space.bilibili.com/1552856479?spm_id_from=333.788.0.0">B站账号主页</a>
+        </section>
+            
+        <div class="social-links">
+            <a class="btn" href="https://github.com/Liuyu999777" target="_blank" alt="Github"><img src="github.svg">GitHub</a>
+            <a class="btn" href="https://space.bilibili.com/1552856479?spm_id_from=333.1007.0.0" target="_blank" alt="Bilibili"><img src="bilibili.svg">Bilibili</a>
         </div>
 
 
+
+
+
     </main>
-    <footer>© 2026 流雨的个人主页</footer>
+
 </body>
 </html>

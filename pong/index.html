@@ -2,6 +2,7 @@
 <html>
 <head>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/ball.png">
     <style>
 
     * {
@@ -28,8 +29,8 @@
                 }
             },
             scale: {
-                mode: Phaser.Scale.FIT,      // 自动缩放以适应屏幕
-                autoCenter: Phaser.Scale.CENTER_BOTH // 水平和垂直全部居中
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH
             },
             scene: { preload, create, update }
         };
