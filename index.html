@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
     <script src="clock.js"></script>
+    <script src="copy.js"></script>
     <style>
     </style>
     <title>流雨的个人主页</title>
@@ -56,16 +57,16 @@
             <p>电话：13376977722</p>
             <p>QQ:1054795272</p>
             <p>微信：_Liu_Yu__</p>
-            <a href="https://github.com/Liuyu999777">GitHub个人主页：</a>
-            <a href="https://space.bilibili.com/1552856479?spm_id_from=333.788.0.0">B站账号主页</a>
         </section>
             
         <div class="social-links">
+            <span class="btn"><img src="qq.svg" onclick="copyToClipboard('1054795272')"></span>
             <a class="btn" href="https://github.com/Liuyu999777" target="_blank" alt="Github"><img src="github.svg">GitHub</a>
             <a class="btn" href="https://space.bilibili.com/1552856479?spm_id_from=333.1007.0.0" target="_blank" alt="Bilibili"><img src="bilibili.svg">Bilibili</a>
+            <span class="btn"><img src="wechat.svg" onclick="copyToClipboard('_Liu_Yu__')"></span>
         </div>
 
-
+        <div id="copy-toast" class="toast">已复制到剪贴板 ✨</div>
 
 
 
