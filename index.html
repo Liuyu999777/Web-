@@ -20,14 +20,14 @@
     <main>
         <div class="search-card card">
             <form class="search-form" id='search-form'action="https://www.baidu.com/s" method="get" target="_blank">
-                <div class="search-engine-selector">
-                    <img id="current-engine-icon" src="icons/baidu.svg" alt="Baidu" onclick="toggleEngineMenu()">
-                    <ul id="engine-menu" class="engine-menu">
-                        <li onclick="setEngine('baidu')"><img src="icons/baidu.svg"> 百度</li>
-                        <li onclick="setEngine('google')"><img src="icons/google.svg"> Google</li>
-                        <li onclick="setEngine('bing')"><img src="icons/bing.svg"> Bing</li>
-                    </ul>
+                <div class="search-engine-selector" onclick=toggleEngineMenu()>
+                    <img id="current-engine-icon" src="icons/baidu.svg" alt="Baidu">
                 </div>
+                <ul id="engine-menu" class="engine-menu">
+                    <li onclick="setEngine('baidu')"><img src="icons/baidu.svg"> 百度</li>
+                    <li onclick="setEngine('google')"><img src="icons/google.svg"> Google</li>
+                    <li onclick="setEngine('bing')"><img src="icons/bing.svg"> Bing</li>
+                </ul>
         
                 <input type="text" class='search-input'id='search-input' name="wd" placeholder="搜点什么？">
                 <button type="submit" class="search-btn">搜索</button>
