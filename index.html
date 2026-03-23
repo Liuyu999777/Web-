@@ -9,9 +9,6 @@
     <link rel="icon" type="image/x-icon" href="profile.jpg">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
-    <script src="clock.js"></script>
-    <script src="copy.js"></script>
-    <script src="engine.js"></script>
     <style>
     </style>
     <title>流雨的个人主页</title>
@@ -85,8 +82,20 @@
         <div id="copy-toast" class="toast">已复制到剪贴板 ✨</div>
 
 
+        <div class="record" onclick="toggleMusic()">
+            <img src="icons/cd.svg" alt="Record" id="CD"> 
+            <audio id="bgm" loop>
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+
 
     </main>
+    <script src="clock.js"></script>
+    <script src="copy.js"></script>
+    <script src="engine.js"></script>
     <script src="rain.js"></script>
+    <script src="music.js"></script>
 </body>
 </html>
