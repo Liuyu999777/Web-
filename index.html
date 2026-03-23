@@ -11,42 +11,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
     <script src="clock.js"></script>
     <script src="copy.js"></script>
+    <script src="engine.js"></script>
     <style>
     </style>
     <title>流雨的个人主页</title>
 </head>
 <body>
     <main>
+        <div class="search-card card">
+            <form class="search-form" id='search-form'action="https://www.baidu.com/s" method="get" target="_blank">
+                <div class="search-engine-selector">
+                    <img id="current-engine-icon" src="icons/baidu.svg" alt="Baidu" onclick="toggleEngineMenu()">
+                    <ul id="engine-menu" class="engine-menu">
+                        <li onclick="setEngine('baidu')"><img src="icons/baidu.svg"> 百度</li>
+                        <li onclick="setEngine('google')"><img src="icons/google.svg"> Google</li>
+                        <li onclick="setEngine('bing')"><img src="icons/bing.svg"> Bing</li>
+                    </ul>
+                </div>
+        
+                <input type="text" class='search-input'id='search-input' name="wd" placeholder="搜点什么？">
+                <button type="submit" class="search-btn">搜索</button>
+            </form>
+        </div>
 
-        <section class = 'card' id="clock">
+        <div class = 'card' id="clock">
             <span id="hour">00</span> <span>:</span> <span id="minute">00</span> <span>:</span> <span id="second">00</span>
-        </section>
+        </div>
 
-        <section class="card" id="profile">
+        <div class="card" id="profile">
         <img src="profile.jpg" alt="头像">
         <h1>Hello!</h1>
         <p>I'm <span id="name">Liu_Yu</span></p>
         <p>Welcom to my page</p>
         <p>Have a good day!</p>
     
-        </section>
+        </div>
 
 
-        <section class ='card' id="project">
+        <div class ='card' id="project">
             <h2>实践项目</h2>
             <p>Phaser3实现Pong游戏</p>
             <a href='pong/index.html' target='_blank'>传送门</a>
 
-        </section>
+        </div>
 
-        <section class="card" id = 'waiting'>
+        <div class="card" id ='waiting'>
             <h2>待定</h2>
             
 
 
-        </section>
+        </div>
 
-        <section class="card" id="contact">
+        <div class="card" id="contact">
             <h2>联系方式</h2>
             <p>
                 电子邮件：
@@ -55,15 +71,13 @@
                 <span class="email">2500013521@stu.pku.edu.cn</span>
             </p>
             <p>电话：13376977722</p>
-            <p>QQ:1054795272</p>
-            <p>微信：_Liu_Yu__</p>
-        </section>
+        </div>
             
         <div class="social-links">
-            <span class="btn"><img src="qq.svg" onclick="copyToClipboard('1054795272')"></span>
-            <a class="btn" href="https://github.com/Liuyu999777" target="_blank" alt="Github"><img src="github.svg">GitHub</a>
-            <a class="btn" href="https://space.bilibili.com/1552856479?spm_id_from=333.1007.0.0" target="_blank" alt="Bilibili"><img src="bilibili.svg">Bilibili</a>
-            <span class="btn"><img src="wechat.svg" onclick="copyToClipboard('_Liu_Yu__')"></span>
+            <span class="btn"><img src="icons/qq.svg" onclick="copyToClipboard('1054795272')"></span>
+            <a class="btn" href="https://github.com/Liuyu999777" target="_blank" alt="Github"><img src="icons/github.svg">GitHub</a>
+            <a class="btn" href="https://space.bilibili.com/1552856479?spm_id_from=333.1007.0.0" target="_blank" alt="Bilibili"><img src="icons/bilibili.svg">Bilibili</a>
+            <span class="btn"><img src="icons/wechat.svg" onclick="copyToClipboard('_Liu_Yu__')"></span>
         </div>
 
         <div id="copy-toast" class="toast">已复制到剪贴板 ✨</div>
