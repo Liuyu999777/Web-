@@ -243,7 +243,7 @@ p{
     background: #4e6ef2;
     color: white;
     border: none;
-    padding: 6px 20px;
+    padding: 6px 10px;
     border-radius: 50px;
     cursor: pointer;
     transition: background 0.3s;
@@ -305,4 +305,14 @@ p{
 .engine-menu img {
     width: 16px;
     height: 16px;
+}
+
+#rain-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; 
+    pointer-events: none;
 }
