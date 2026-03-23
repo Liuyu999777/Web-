@@ -1,9 +1,13 @@
-const canvas = document.getElementById('rain-canvas');
-const ctx = canvas.getContext('2d');
+const canvas_rain = document.getElementById('rain-canvas');
+const canvas_waterflower = document.getElementById('waterflower-canvas');
+const ctx_rain = canvas_rain.getContext('2d');
+const ctx_waterflower = canvas_waterflower.getContext('2d');
 
 function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas_rain.width = window.innerWidth;
+    canvas_rain.height = window.innerHeight;
+    canvas_waterflower.width = window.innerWidth;
+    canvas_waterflower.height = window.innerHeight;
 }
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
@@ -13,8 +17,8 @@ class Raindrop {
         this.reset();
     }
     reset() {
-        this.x = (Math.random()+0.3) * canvas.width;
-        this.y = Math.random() * -canvas.height;
+        this.x = (Math.random()+0.3) * canvas_rain.width;
+        this.y = Math.random() * -canvas_rain.height;
         this.v = Math.random() * 4 + 5;
         this.length = Math.random() * 10 + 40; 
         this.opacity = Math.random() * 0.2 + 0.6;
@@ -23,23 +27,23 @@ class Raindrop {
     update() {
         this.y += this.v;
         this.x += this.v*(-0.3);
-        if (this.y > canvas.height) {
+        if (this.y > canvas_rain.height) {
             this.reset();
         }
     }
 
     draw() {
-        let gradient = ctx.createLinearGradient(this.x, this.y, this.x, this.y + this.length);
+        let gradient = ctx_rain.createLinearGradient(this.x, this.y, this.x, this.y + this.length);
         gradient.addColorStop(0, 'rgba(164, 227, 248, 0)');
         gradient.addColorStop(1, `rgba(102, 178, 255, ${this.opacity})`);
-        ctx.shadowBlur = 2;
-        ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
-        ctx.beginPath();
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = 2;
-        ctx.moveTo(this.x, this.y);
-        ctx.lineTo(this.x -this.length*0.3, this.y + this.length); 
-        ctx.stroke();
+        ctx_rain.shadowBlur = 2;
+        ctx_rain.shadowColor = 'rgba(0, 0, 0, 0.2)';
+        ctx_rain.beginPath();
+        ctx_rain.strokeStyle = gradient;
+        ctx_rain.lineWidth = 2;
+        ctx_rain.moveTo(this.x, this.y);
+        ctx_rain.lineTo(this.x -this.length*0.3, this.y + this.length); 
+        ctx_rain.stroke();
     }
 }
 
@@ -63,12 +67,12 @@ class Splash {
     }
 
     draw(ctx) {
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(77, 203, 245, ${this.opacity})`;
-        ctx.fill();
-        ctx.restore();
+        ctx_waterflower.save();
+        ctx_waterflower.beginPath();
+        ctx_waterflower.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx_waterflower.fillStyle = `rgba(77, 203, 245, ${this.opacity})`;
+        ctx_waterflower.fill();
+        ctx_waterflower.restore();
     }
 }
 
@@ -87,17 +91,19 @@ for (let i = 0; i < raindropCount; i++) {
 }
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx_rain.clearRect(0, 0, canvas_rain.width, canvas_rain.height);
+    ctx_waterflower.clearRect(0, 0, canvas_waterflower.width, canvas_waterflower.height);
 
     for (let i = 0; i < raindrops.length; i++) {
-        raindrops[i].update();
-        raindrops[i].draw();
+        const s = raindrops[i];
+        s.update();
+        s.draw();
     }
 
-    for (let i = splashes.length - 1; i >= 0; i--) {
+    for (let i = 0; i < splashes.length; i++) {
         const s = splashes[i];
         s.update();
-        s.draw(ctx);
+        s.draw(ctx_waterflower);
 
         if (s.opacity <= 0) {
             splashes.splice(i, 1);
