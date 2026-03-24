@@ -51,12 +51,12 @@ class Splash {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.vx = (Math.random() - 0.5) * 6; 
-        this.vy = (Math.random() * -4) - 2;
-        this.gravity = 0.2;
+        this.vx = (Math.random() - 0.5) * 3; 
+        this.vy = (Math.random() * -2) - 2;
+        this.gravity = 0.1;
         this.radius = Math.random() * 2 + 1;
         this.opacity = 1;
-        this.decay = Math.random() * 0.02 + 0.015;
+        this.decay = Math.random() * 0.02 + 0.001;
     }
 
     update() {
