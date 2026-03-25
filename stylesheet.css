@@ -91,7 +91,7 @@ body::before {
     opacity:0;
     animation: slideIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     transition:0.5s;
-    overflow:hidden;
+    overflow:visible;
     padding:20px;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius:10px;
@@ -128,9 +128,12 @@ body::before {
     grid-area:b;
 }
 
-#waiting{
+#navigation{
     animation-delay:1s;
     grid-area:c;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
 }
 #project{
     animation-delay:1s;
@@ -237,6 +240,84 @@ p{
 .card:active:not(.search-card){
     scale:0.98;
 }
+
+.nav-class img{
+    width: 24px;
+    height: 24px;
+}
+.nav-class {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid transparent; 
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-class span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px; 
+}
+
+.nav-class:hover {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(187, 206, 239, 0.2);
+    backdrop-filter: blur(25px);
+}
+
+.details {
+    position: fixed; 
+    left: 100%;     
+    top: 50%;        
+    transform: translateY(-50%) translateX(15px); /* 向上偏移自身一半实现垂直居中 */
+    
+    display:flex;
+    flex-direction: column;
+    width: 120px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 100;
+
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-class:hover .details {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(25px); /* 向右滑入 10px */
+}
+
+.details::before {
+    content: "";        
+    position: absolute;
+    top: -20px;        
+    bottom: -20px;      
+    left: -20px;        
+    width: 25px;        
+    
+    background: transparent;
+    
+    z-index: -1;         
+}
+
+.details a{
+    display:flex;
+    align-items:center;
+    gap: 4px;
+}
+
 /* 卡片交互 */
 .toast {
     position: fixed;
