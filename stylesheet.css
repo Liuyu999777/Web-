@@ -167,6 +167,7 @@ a:active{
     color:#99ccff
 }/* 链接样式 */
 
+
 main{
     display:grid;
     font-family:'Averia Gruesa Libre', cursive;
@@ -246,6 +247,7 @@ p{
     height: 24px;
 }
 .nav-class {
+    opacity:0;
     position: relative;
     border-radius: 10px;
     border: 1px solid transparent; 
@@ -253,9 +255,15 @@ p{
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease,border 0.3s ease,transform 0.3s ease;
     cursor: pointer;
 }
+
+.nav-class {
+    animation: slideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(1.5s + var(--i) * 0.1s);
+}/* 导航项的滑入动画，利用CSS变量实现错落有致的效果 */
+
 
 .nav-class span {
     display: flex;
