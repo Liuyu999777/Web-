@@ -12,7 +12,6 @@ function updateClock() {
         hElem.textContent = hours;
         mElem.textContent = minutes;
         sElem.textContent = seconds;
-
     }
 }
 

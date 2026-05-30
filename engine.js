@@ -32,35 +32,33 @@ function setEngine(key) {
     input.name = config.param;
     input.placeholder = config.placeholder;
     icon.src = config.icon;
+    icon.alt = config.name;
 
     localStorage.setItem('selectedEngine', key);
 
     document.getElementById('engine-menu').classList.add('hide');
     document.getElementById('engine-menu').classList.remove('show');
-    }
-
-function toggleEngineMenu() {
-    document.getElementById('engine-menu').classList.add('show');
-    document.getElementById('engine-menu').classList.remove('hide');
 }
 
-window.addEventListener('click', (e) => {
+function toggleEngineMenu() {
     const menu = document.getElementById('engine-menu');
-    const icon = document.getElementById('current-engine-icon');
-    
-    if (menu.classList.contains('show') && !menu.contains(e.target) && e.target !== icon) {
-        document.getElementById('engine-menu').classList.add('hide');
-        document.getElementById('engine-menu').classList.remove('show');
+    menu.classList.toggle('show');
+    menu.classList.toggle('hide');
+}
+
+document.addEventListener('click', function (e) {
+    const menu = document.getElementById('engine-menu');
+    const selector = document.querySelector('.search-engine-selector');
+    if (menu.classList.contains('show') && !menu.contains(e.target) && e.target !== selector && !selector.contains(e.target)) {
+        menu.classList.add('hide');
+        menu.classList.remove('show');
     }
 });
 
-
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const savedEngine = localStorage.getItem('selectedEngine');
-    
     if (savedEngine && engineConfig[savedEngine]) {
-
-        applyEngine(savedEngine); 
+        applyEngine(savedEngine);
     }
 });
 
@@ -70,4 +68,5 @@ function applyEngine(key) {
     document.getElementById('search-input').name = config.param;
     document.getElementById('search-input').placeholder = config.placeholder;
     document.getElementById('current-engine-icon').src = config.icon;
+    document.getElementById('current-engine-icon').alt = config.name;
 }

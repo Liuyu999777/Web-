@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="个人主页，Web开发，个人项目">
-	<meta name="description" content="流雨的个人主页">
-	<meta name="author" content='Liu_Yu'>
+    <meta name="keywords" content="个人主页, Web开发, 个人项目">
+    <meta name="description" content="流雨的个人主页">
+    <meta name="author" content="Liu_Yu">
     <link rel="icon" type="image/x-icon" href="profile.jpg">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap" rel="stylesheet">
-    <style>
-    </style>
     <title>流雨的个人主页</title>
 </head>
 <body>
@@ -19,40 +17,36 @@
     <canvas id="waterflower-canvas"></canvas>
     <main>
         <div class="search-card card">
-            <form class="search-form" id='search-form'action="https://www.baidu.com/s" method="get" target="_blank">
-                <div class="search-engine-selector" onclick=toggleEngineMenu()>
+            <form class="search-form" id="search-form" action="https://www.baidu.com/s" method="get" target="_blank" rel="noopener noreferrer">
+                <div class="search-engine-selector" onclick="toggleEngineMenu()" role="button" tabindex="0" aria-label="选择搜索引擎">
                     <img id="current-engine-icon" src="icons/baidu.svg" alt="Baidu">
                 </div>
                 <ul id="engine-menu" class="engine-menu">
-                    <li onclick="setEngine('baidu')"><img src="icons/baidu.svg">百度</li>
-                    <li onclick="setEngine('google')"><img src="icons/google.svg">Google</li>
-                    <li onclick="setEngine('bing')"><img src="icons/bing.svg">Bing</li>
+                    <li onclick="setEngine('baidu')" role="none"><img src="icons/baidu.svg" alt="">百度</li>
+                    <li onclick="setEngine('google')" role="none"><img src="icons/google.svg" alt="">Google</li>
+                    <li onclick="setEngine('bing')" role="none"><img src="icons/bing.svg" alt="">Bing</li>
                 </ul>
-        
-                <input type="text" class='search-input'id='search-input' name="wd" placeholder="搜点什么？">
+                <input type="text" class="search-input" id="search-input" name="wd" placeholder="搜点什么？">
                 <button type="submit" class="search-btn">搜索</button>
             </form>
         </div>
 
-        <div class = 'card' id="clock">
+        <div class="card" id="clock">
             <span id="hour">00</span> <span>:</span> <span id="minute">00</span> <span>:</span> <span id="second">00</span>
         </div>
 
         <div class="card" id="profile">
-        <img src="profile.jpg" alt="头像">
-        <h1>Hello!</h1>
-        <p>I'm <span id="name">Liu_Yu</span></p>
-        <p>Welcom to my page</p>
-        <p>Have a good day!</p>
-    
+            <img src="profile.jpg" alt="头像">
+            <h1>Hello!</h1>
+            <p>I'm <span id="name">Liu_Yu</span></p>
+            <p>Welcome to my page</p>
+            <p>Have a good day!</p>
         </div>
 
-
-        <div class ='card' id="project">
+        <div class="card" id="project">
             <h2>实践项目</h2>
             <p>Phaser3实现Pong游戏</p>
-            <a href='pong/index.html' target='_blank'>传送门</a>
-
+            <a href="pong/index.html" target="_blank" rel="noopener noreferrer">传送门</a>
         </div>
 
         <div class="card" id="navigation">
@@ -60,37 +54,37 @@
             <div class="nav-class" style="--i: 1;">
                 <span><img src="icons/pku.svg" alt="PKU">北京大学</span>
                 <div class="details">
-                    <a href="https://portal.pku.edu.cn/portal2017/#/bizCenter?rand=0.2884724908694202." target="_blank"><img src="icons/pku.svg">信息门户</a>
-                    <a href="https://course.pku.edu.cn/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1" target="_blank"><img src="icons/pku.svg">课程网</a>
-                    <a href="https://pku.instructure.com/login/canvas" target="_blank"><img src="icons/pku.svg">Canvas</a>
-                    <a href="https://clab.pku.edu.cn/base/overview" target="_blank"><img src="icons/Clab.png">Clab</a>
-                    <a href="http://dangxiao.pku.edu.cn/jjfz/" target="_blank"><img src="icons/pku.svg">积极分子培训</a>
-                    <a href="https://lib.pku.edu.cn/" target="_blank"><img src="icons/lib.png">图书馆</a>
-                    <a href="https://treehole.pku.edu.cn/web/" target="_blank"><img src="icons/treehole.png">树洞</a>
-                    <a href="https://iphysics.pku.edu.cn/" target="_balnk"><img src="icons/pku.svg">iPhysics</a>
+                    <a href="https://portal.pku.edu.cn/portal2017/#/bizCenter?rand=0.2884724908694202." target="_blank" rel="noopener noreferrer"><img src="icons/pku.svg" alt="">信息门户</a>
+                    <a href="https://course.pku.edu.cn/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_1_1" target="_blank" rel="noopener noreferrer"><img src="icons/pku.svg" alt="">课程网</a>
+                    <a href="https://pku.instructure.com/login/canvas" target="_blank" rel="noopener noreferrer"><img src="icons/pku.svg" alt="">Canvas</a>
+                    <a href="https://clab.pku.edu.cn/base/overview" target="_blank" rel="noopener noreferrer"><img src="icons/Clab.png" alt="">Clab</a>
+                    <a href="http://dangxiao.pku.edu.cn/jjfz/" target="_blank" rel="noopener noreferrer"><img src="icons/pku.svg" alt="">积极分子培训</a>
+                    <a href="https://lib.pku.edu.cn/" target="_blank" rel="noopener noreferrer"><img src="icons/lib.png" alt="">图书馆</a>
+                    <a href="https://treehole.pku.edu.cn/web/" target="_blank" rel="noopener noreferrer"><img src="icons/treehole.png" alt="">树洞</a>
+                    <a href="https://iphysics.pku.edu.cn/" target="_blank" rel="noopener noreferrer"><img src="icons/pku.svg" alt="">iPhysics</a>
+                    <a href="https://a.readoor.cn/550278742975483904/home?back={%22fullPath%22:%22/550278742975483904/class/joinByCode?group_code=10017017%22,%22query%22:{%22group_code%22:%2210017017%22}}" target="_blank" rel="noopener noreferrer"><img src="icons/pku.svg" alt="">博雅云学堂</a>
                 </div>
             </div>
             <div class="nav-class" style="--i: 2;">
-                <span><img src="icons/bili.svg">休闲娱乐</span>
+                <span><img src="icons/bili.svg" alt="">休闲娱乐</span>
                 <div class="details">
-                    <a href="https://www.bilibili.com/" target="_blank"><img src="icons/bili.svg">哔哩哔哩</a>
-                    <a href="https://www.ted.com/" target="_blank"><img src="icons/ted.svg">TED</a>
+                    <a href="https://www.bilibili.com/" target="_blank" rel="noopener noreferrer"><img src="icons/bili.svg" alt="">哔哩哔哩</a>
+                    <a href="https://www.ted.com/" target="_blank" rel="noopener noreferrer"><img src="icons/ted.svg" alt="">TED</a>
                 </div>
             </div>
             <div class="nav-class" style="--i: 3;">
-                <span><img src="icons/gemini-ai.svg">实用工具</span>
+                <span><img src="icons/gemini-ai.svg" alt="">实用工具</span>
                 <div class="details">
-                    <a href="https://gemini.google.com/app" target="_blank"><img src="icons/gemini-ai.svg">Gemini</a>
-                    <a href="https://www.runoob.com/" target="_blank"><img src="icons/runoob.svg">菜鸟教程</a>
-                    <a href="https://www.iconfont.cn/" target="_blank"><img src="icons/iconfont.svg">阿里图标库</a>
-                    <a href='https://www.pixilart.com/' target='_blank'><img src="icons/draw.png">Pixilart</a>
-                    <a href="https://zh.z-library.sk/" target="_blank"><img src="icons/Z-Library.svg">Z-library</a>
-                    <a href="https://dict.youdao.com/result?word=ore&lang=en" target="_blank"><img src="icons/youdao.svg">有道词典</a>
-                    <a href="https://op.gg/lol/champions" target="_blank"><img src="icons/champions.png">OPGG</a>
-                    <a href="https://buguoguo.cn" target="_blank"><img src="icons/lol.svg">布锅锅素材库</a>
-                    <a href="https://font.chinaz.com" target="_blank"><img src="icons/zhanzhang.ico">站长免费商用字体</a>
-                    <a href="https://peanutdl.com/zh" target="_blank"><img src="icons/peanut.ico">花生视频下载器</a>
-
+                    <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer"><img src="icons/gemini-ai.svg" alt="">Gemini</a>
+                    <a href="https://www.runoob.com/" target="_blank" rel="noopener noreferrer"><img src="icons/runoob.svg" alt="">菜鸟教程</a>
+                    <a href="https://www.iconfont.cn/" target="_blank" rel="noopener noreferrer"><img src="icons/iconfont.svg" alt="">阿里图标库</a>
+                    <a href="https://www.pixilart.com/" target="_blank" rel="noopener noreferrer"><img src="icons/draw.png" alt="">Pixilart</a>
+                    <a href="https://zh.z-library.sk/" target="_blank" rel="noopener noreferrer"><img src="icons/Z-Library.svg" alt="">Z-library</a>
+                    <a href="https://dict.youdao.com/result?word=ore&lang=en" target="_blank" rel="noopener noreferrer"><img src="icons/youdao.svg" alt="">有道词典</a>
+                    <a href="https://op.gg/lol/champions" target="_blank" rel="noopener noreferrer"><img src="icons/champions.png" alt="">OPGG</a>
+                    <a href="https://buguoguo.cn" target="_blank" rel="noopener noreferrer"><img src="icons/lol.svg" alt="">布锅锅素材库</a>
+                    <a href="https://font.chinaz.com" target="_blank" rel="noopener noreferrer"><img src="icons/zhanzhang.ico" alt="">站长免费商用字体</a>
+                    <a href="https://peanutdl.com/zh" target="_blank" rel="noopener noreferrer"><img src="icons/peanut.ico" alt="">花生视频下载器</a>
                 </div>
             </div>
         </div>
@@ -105,28 +99,25 @@
             </p>
             <p>电话：13376977722</p>
         </div>
-            
+
         <div class="social-links">
-            <span class="btn"><img src="icons/qq.svg" onclick="copyToClipboard('1054795272')"></span>
-            <a class="btn" href="https://github.com/Liuyu999777" target="_blank" alt="Github"><img src="icons/github.svg">GitHub</a>
-            <a class="btn" href="https://space.bilibili.com/1552856479?spm_id_from=333.1007.0.0" target="_blank" alt="Bilibili"><img src="icons/bilibili.svg">Bilibili</a>
-            <span class="btn"><img src="icons/wechat.svg" onclick="copyToClipboard('_Liu_Yu__')"></span>
+            <span class="btn" onclick="copyToClipboard('1054795272')" role="button" tabindex="0" aria-label="复制 QQ 号"><img src="icons/qq.svg" alt="QQ"></span>
+            <a class="btn" href="https://github.com/Liuyu999777" target="_blank" rel="noopener noreferrer"><img src="icons/github.svg" alt="">GitHub</a>
+            <a class="btn" href="https://space.bilibili.com/1552856479?spm_id_from=333.1007.0.0" target="_blank" rel="noopener noreferrer"><img src="icons/bilibili.svg" alt="">Bilibili</a>
+            <span class="btn" onclick="copyToClipboard('_Liu_Yu__')" role="button" tabindex="0" aria-label="复制微信号"><img src="icons/wechat.svg" alt="微信"></span>
         </div>
 
         <div id="copy-toast" class="toast">已复制到剪贴板 ✨</div>
 
-
-        <div class="record" onclick="toggleMusic()">
-            <img src="icons/cd.svg" alt="Record" id="CD"> 
-            <audio id="bgm" loop preload='none'>
+        <div class="record" onclick="toggleMusic()" role="button" tabindex="0" aria-label="播放或暂停背景音乐">
+            <img src="icons/cd.svg" alt="Record" id="CD">
+            <audio id="bgm" loop preload="none">
                 <source src="music.mp3" type="audio/mpeg">
             </audio>
         </div>
 
-
-
     </main>
-    <script src="clock.js"></script> 
+    <script src="clock.js"></script>
     <script src="copy.js"></script>
     <script src="engine.js"></script>
     <script src="rain.js"></script>
