@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "mcp__Claude_*",
+      "mcp__ccd_*",
+      "mcp__Claude_Preview_*",
+      "mcp__Claude_in_Chrome_*",
+      "mcp__scheduled-tasks_*"
+    ]
+  }
+}
